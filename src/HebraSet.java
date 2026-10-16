@@ -1,15 +1,20 @@
-public class Hebra extends Thread {
-    private final VariableCompartida variableCompartida;
-    private final int veces;
+public class HebraSet extends Thread {
+    public final VariableCompartida variableCompartida;
 
-    public Hebra(VariableCompartida variableCompartida, int veces) {
+    public HebraSet(VariableCompartida variableCompartida) {
         this.variableCompartida = variableCompartida;
-        this.veces = veces;
     }
 
-    public void run(){
-        for (int i = 0; i < veces; i++) {
-            variableCompartida.increment();
+    @Override
+    public void run() {
+        for (int i = 0; i < 100; i++) {
+            variableCompartida.set(i);
+
+            try {
+                Thread.sleep(50);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
