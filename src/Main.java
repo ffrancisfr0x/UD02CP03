@@ -13,7 +13,5 @@ public class Main {
 
         escritor.join();
         lector.join();
-
-
     }
 }

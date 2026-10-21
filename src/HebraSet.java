@@ -9,12 +9,6 @@ public class HebraSet extends Thread {
     public void run() {
         for (int i = 0; i < 100; i++) {
             variableCompartida.set(i);
-
-            try {
-                Thread.sleep(50);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
         }
     }
 }
